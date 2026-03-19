@@ -1,0 +1,271 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Schedule">
+  <style>
+    .schedule-hero {
+      background: linear-gradient(135deg, #0a0e27 0%, #1a237e 100%);
+      color: #ffffff;
+      padding: 3rem 0;
+    }
+
+    .schedule-hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .schedule-content {
+      padding: 4rem 0;
+    }
+
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .day-card {
+      background: #ffffff;
+      border-left: 4px solid #64b5f6;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .day-card h3 {
+      color: #0a0e27;
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+    }
+
+    .event-item {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .event-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .event-time {
+      color: #64b5f6;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .event-title {
+      color: #0a0e27;
+      font-weight: 600;
+      margin: 0.5rem 0;
+    }
+
+    .event-speaker {
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: #0a0e27;
+    }
+
+    .timeline {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      padding: 2rem 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 100%;
+      background: #e0e0e0;
+    }
+
+    .timeline-item {
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .timeline-item:nth-child(odd) {
+      padding-right: 52%;
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) {
+      padding-left: 52%;
+      text-align: left;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      width: 16px;
+      height: 16px;
+      background: #64b5f6;
+      border: 3px solid #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px #64b5f6;
+    }
+
+    .timeline-content {
+      background: #f5f5f5;
+      padding: 1.5rem;
+      border-radius: 8px;
+    }
+
+    .timeline-content h4 {
+      color: #0a0e27;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-content p {
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .schedule-hero h1 {
+        font-size: 2rem;
+      }
+
+      .timeline::before {
+        left: 0;
+      }
+
+      .timeline-item:nth-child(odd),
+      .timeline-item:nth-child(even) {
+        padding-left: 40px;
+        padding-right: 0;
+        text-align: left;
+      }
+
+      .timeline-dot {
+        left: 0;
+      }
+    }
+  </style>
+
+  <section class="schedule-hero">
+    <div class="container">
+      <h1>Event Schedule</h1>
+      <p>Explore the full agenda for Dev Summit 2026</p>
+    </div>
+  </section>
+
+  <section class="schedule-content">
+    <div class="container">
+      <h2 class="section-title">Conference Days</h2>
+      <div class="schedule-grid">
+        <div class="day-card">
+          <h3>Day 1: June 15, 2026</h3>
+          <div class="event-item">
+            <div class="event-time">09:00 AM - 10:00 AM</div>
+            <div class="event-title">Opening Keynote</div>
+            <div class="event-speaker">Sarah Chen, Chief Innovation Officer</div>
+          </div>
+          <div class="event-item">
+            <div class="event-time">10:15 AM - 11:15 AM</div>
+            <div class="event-title">AI-Assisted Code Generation</div>
+            <div class="event-speaker">Dr. James Wilson</div>
+          </div>
+          <div class="event-item">
+            <div class="event-time">11:30 AM - 12:30 PM</div>
+            <div class="event-title">Workshop: Modern DevOps</div>
+            <div class="event-speaker">Alex Rodriguez</div>
+          </div>
+          <div class="event-item">
+            <div class="event-time">12:30 PM - 1:30 PM</div>
+            <div class="event-title">Lunch Break</div>
+          </div>
+          <div class="event-item">
+            <div class="event-time">1:30 PM - 2:30 PM</div>
+            <div class="event-title">Panel Discussion: Future of AI in Dev</div>
+            <div class="event-speaker">Multiple Speakers</div>
+          </div>
+          <div class="event-item">
+            <div class="event-time">3:00 PM - 5:00 PM</div>
+            <div class="event-title">Breakout Sessions</div>
+          </div>
+        </div>
+
+        <div class="day-card">
+          <h3>Day 2: June 16, 2026</h3>
+          <div class="event-item">
+            <div class="event-time">09:00 AM - 10:00 AM</div>
+            <div class="event-title">Advanced Workflows</div>
+            <div class="event-speaker">Maria Garcia</div>
+          </div>
+          <div class="event-item">
+            <div class="event-time">10:15 AM - 11:15 AM</div>
+            <div class="event-title">Security Best Practices</div>
+            <div class="event-speaker">Michael Zhang</div>
+          </div>
+          <div class="event-item">
+            <div class="event-time">11:30 AM - 12:30 PM</div>
+            <div class="event-title">Workshop: Cloud Architecture</div>
+            <div class="event-speaker">Emma Thompson</div>
+          </div>
+          <div class="event-item">
+            <div class="event-time">12:30 PM - 1:30 PM</div>
+            <div class="event-title">Lunch Break</div>
+          </div>
+          <div class="event-item">
+            <div class="event-time">1:30 PM - 2:30 PM</div>
+            <div class="event-title">Emerging Technologies</div>
+            <div class="event-speaker">David Kumar</div>
+          </div>
+          <div class="event-item">
+            <div class="event-time">3:00 PM - 4:00 PM</div>
+            <div class="event-title">Closing Keynote & Networking</div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="section-title" style="margin-top: 4rem;">Timeline Overview</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4>Registration Opens</h4>
+            <p>May 1, 2026 - Early bird tickets available</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4>Speaker Announcements</h4>
+            <p>May 15, 2026 - Full speaker lineup revealed</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4>Workshop Registration</h4>
+            <p>June 1, 2026 - Sign up for hands-on sessions</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4>Dev Summit 2026</h4>
+            <p>June 15-16, 2026 - The main event</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

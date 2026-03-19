@@ -1,0 +1,236 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Home">
+  <style>
+    .hero {
+      background: linear-gradient(135deg, #0a0e27 0%, #1a237e 100%);
+      color: #ffffff;
+      padding: 6rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(100, 181, 246, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero-content p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      color: #b0bec5;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.75rem 2rem;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background-color: #64b5f6;
+      color: #0a0e27;
+    }
+
+    .btn-primary:hover {
+      background-color: #42a5f5;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(100, 181, 246, 0.4);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: #64b5f6;
+      border: 2px solid #64b5f6;
+    }
+
+    .btn-secondary:hover {
+      background-color: #64b5f6;
+      color: #0a0e27;
+    }
+
+    .hero-image {
+      position: relative;
+      height: 400px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .features {
+      padding: 4rem 0;
+      background-color: #f5f5f5;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature-card {
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .feature-card h3 {
+      color: #0a0e27;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .feature-card p {
+      color: #666;
+      line-height: 1.8;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: #0a0e27;
+    }
+
+    .cta-section {
+      background: linear-gradient(135deg, #0a0e27 0%, #1a237e 100%);
+      color: #ffffff;
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      color: #b0bec5;
+    }
+
+    @media (max-width: 768px) {
+      .hero .container {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-image {
+        height: 300px;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .cta-section h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Dev Summit 2026</h1>
+        <p>Join us for a premier developer conference exploring AI-assisted engineering workflows and the future of software development.</p>
+        <div class="hero-buttons">
+          <a href={`${import.meta.env.BASE_URL}register`} class="btn btn-primary">Register Now</a>
+          <a href={`${import.meta.env.BASE_URL}schedule`} class="btn btn-secondary">View Schedule</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src={`${import.meta.env.BASE_URL}assets/event-image-1.png`} alt="Dev Summit 2026 Hero Banner" />
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="container">
+      <h2 class="section-title">Why Attend?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>🤖 AI & Automation</h3>
+          <p>Discover cutting-edge AI-assisted engineering workflows that streamline development and boost productivity.</p>
+        </div>
+        <div class="feature-card">
+          <h3>🌐 Networking</h3>
+          <p>Connect with industry leaders, fellow developers, and innovators shaping the future of software engineering.</p>
+        </div>
+        <div class="feature-card">
+          <h3>📚 Learning</h3>
+          <p>Attend expert-led sessions and workshops covering the latest tools, frameworks, and best practices.</p>
+        </div>
+        <div class="feature-card">
+          <h3>💡 Innovation</h3>
+          <p>Explore emerging technologies and gain insights into next-generation development practices.</p>
+        </div>
+        <div class="feature-card">
+          <h3>🎤 Expert Speakers</h3>
+          <p>Learn from renowned speakers and thought leaders in the developer community.</p>
+        </div>
+        <div class="feature-card">
+          <h3>🏆 Opportunities</h3>
+          <p>Discover career opportunities and partnerships with leading tech companies.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Join Us?</h2>
+      <p>Secure your spot at Dev Summit 2026 today and be part of the conversation shaping the future of development.</p>
+      <a href={`${import.meta.env.BASE_URL}register`} class="btn btn-primary">Register Now</a>
+    </div>
+  </section>
+</Layout>
