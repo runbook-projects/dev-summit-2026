@@ -1,0 +1,393 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Register">
+  <style>
+    .register-hero {
+      background: linear-gradient(135deg, #0a0e27 0%, #1a237e 100%);
+      color: #ffffff;
+      padding: 3rem 0;
+    }
+
+    .register-hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .register-content {
+      padding: 4rem 0;
+    }
+
+    .register-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .register-form {
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #0a0e27;
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #64b5f6;
+      box-shadow: 0 0 0 3px rgba(100, 181, 246, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-row .form-group {
+      margin-bottom: 0;
+    }
+
+    .checkbox-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .checkbox-item input[type="checkbox"] {
+      width: auto;
+      margin: 0;
+    }
+
+    .checkbox-item label {
+      margin: 0;
+      font-weight: normal;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #64b5f6;
+      color: #0a0e27;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .submit-btn:hover {
+      background-color: #42a5f5;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(100, 181, 246, 0.4);
+    }
+
+    .ticket-options {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .ticket-card {
+      background: #f5f5f5;
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 4px solid #64b5f6;
+    }
+
+    .ticket-card h3 {
+      color: #0a0e27;
+      margin-bottom: 0.5rem;
+    }
+
+    .ticket-price {
+      font-size: 1.5rem;
+      color: #64b5f6;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .ticket-description {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .ticket-features {
+      list-style: none;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .ticket-features li {
+      padding: 0.25rem 0;
+    }
+
+    .ticket-features li::before {
+      content: '✓ ';
+      color: #64b5f6;
+      font-weight: 600;
+      margin-right: 0.5rem;
+    }
+
+    .faq-section {
+      margin-top: 4rem;
+      padding-top: 4rem;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: #0a0e27;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .faq-item {
+      background: #f5f5f5;
+      padding: 1.5rem;
+      border-radius: 8px;
+    }
+
+    .faq-item h4 {
+      color: #0a0e27;
+      margin-bottom: 0.5rem;
+    }
+
+    .faq-item p {
+      color: #666;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .register-hero h1 {
+        font-size: 2rem;
+      }
+
+      .register-container {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+
+  <section class="register-hero">
+    <div class="container">
+      <h1>Register for Dev Summit 2026</h1>
+      <p>Secure your spot at the premier developer conference</p>
+    </div>
+  </section>
+
+  <section class="register-content">
+    <div class="container">
+      <div class="register-container">
+        <div>
+          <h2 style="color: #0a0e27; margin-bottom: 2rem;">Choose Your Ticket</h2>
+          <div class="ticket-options">
+            <div class="ticket-card">
+              <h3>Early Bird</h3>
+              <div class="ticket-price">$199</div>
+              <div class="ticket-description">Available until May 31, 2026</div>
+              <ul class="ticket-features">
+                <li>2-day conference access</li>
+                <li>All keynote sessions</li>
+                <li>Lunch & refreshments</li>
+                <li>Networking events</li>
+              </ul>
+            </div>
+
+            <div class="ticket-card">
+              <h3>Standard</h3>
+              <div class="ticket-price">$299</div>
+              <div class="ticket-description">Regular admission</div>
+              <ul class="ticket-features">
+                <li>2-day conference access</li>
+                <li>All keynote sessions</li>
+                <li>Lunch & refreshments</li>
+                <li>Networking events</li>
+                <li>Workshop access</li>
+              </ul>
+            </div>
+
+            <div class="ticket-card">
+              <h3>Premium</h3>
+              <div class="ticket-price">$499</div>
+              <div class="ticket-description">VIP experience</div>
+              <ul class="ticket-features">
+                <li>2-day conference access</li>
+                <li>All keynote sessions</li>
+                <li>Premium lunch & dining</li>
+                <li>VIP networking lounge</li>
+                <li>All workshops</li>
+                <li>1-on-1 speaker sessions</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <form class="register-form" action="#" method="POST">
+          <h2 style="color: #0a0e27; margin-bottom: 1.5rem;">Registration Form</h2>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name *</label>
+              <input type="text" id="firstName" name="firstName" required />
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name *</label>
+              <input type="text" id="lastName" name="lastName" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="company">Company</label>
+            <input type="text" id="company" name="company" />
+          </div>
+
+          <div class="form-group">
+            <label for="jobTitle">Job Title</label>
+            <input type="text" id="jobTitle" name="jobTitle" />
+          </div>
+
+          <div class="form-group">
+            <label for="ticketType">Ticket Type *</label>
+            <select id="ticketType" name="ticketType" required>
+              <option value="">Select a ticket type</option>
+              <option value="early-bird">Early Bird - $199</option>
+              <option value="standard">Standard - $299</option>
+              <option value="premium">Premium - $499</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Interested In *</label>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input type="checkbox" id="ai" name="interests" value="ai" />
+                <label for="ai">AI & ML</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="devops" name="interests" value="devops" />
+                <label for="devops">DevOps</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="security" name="interests" value="security" />
+                <label for="security">Security</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="cloud" name="interests" value="cloud" />
+                <label for="cloud">Cloud</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Additional Comments</label>
+            <textarea id="message" name="message"></textarea>
+          </div>
+
+          <div class="form-group">
+            <div class="checkbox-item">
+              <input type="checkbox" id="terms" name="terms" required />
+              <label for="terms">I agree to the terms and conditions *</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="checkbox-item">
+              <input type="checkbox" id="newsletter" name="newsletter" />
+              <label for="newsletter">Subscribe to our newsletter</label>
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn">Complete Registration</button>
+        </form>
+      </div>
+
+      <div class="faq-section">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <h4>When is the conference?</h4>
+            <p>Dev Summit 2026 takes place on June 15-16, 2026. Registration opens at 8:00 AM on both days.</p>
+          </div>
+          <div class="faq-item">
+            <h4>What's included in my ticket?</h4>
+            <p>All tickets include access to keynote sessions, lunch, and networking events. Premium tickets include workshop access and VIP perks.</p>
+          </div>
+          <div class="faq-item">
+            <h4>Can I get a refund?</h4>
+            <p>Refunds are available up to 2 weeks before the event. After that, tickets can be transferred to another person.</p>
+          </div>
+          <div class="faq-item">
+            <h4>Is there a student discount?</h4>
+            <p>Yes! Students receive a 50% discount on all ticket types. Please provide a valid student ID at registration.</p>
+          </div>
+          <div class="faq-item">
+            <h4>Will there be virtual attendance?</h4>
+            <p>We're planning a hybrid experience. Virtual tickets will be available at a discounted rate closer to the event date.</p>
+          </div>
+          <div class="faq-item">
+            <h4>How do I get to the venue?</h4>
+            <p>The conference is held at the Convention Center downtown. Parking and public transportation information will be provided with your confirmation email.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

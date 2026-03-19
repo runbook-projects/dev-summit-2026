@@ -1,0 +1,253 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Speakers">
+  <style>
+    .speakers-hero {
+      background: linear-gradient(135deg, #0a0e27 0%, #1a237e 100%);
+      color: #ffffff;
+      padding: 3rem 0;
+    }
+
+    .speakers-hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .speakers-content {
+      padding: 4rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: #0a0e27;
+    }
+
+    .speakers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .speaker-card {
+      background: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .speaker-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .speaker-image {
+      width: 100%;
+      height: 250px;
+      background: linear-gradient(135deg, #0a0e27 0%, #1a237e 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 4rem;
+    }
+
+    .speaker-info {
+      padding: 1.5rem;
+    }
+
+    .speaker-name {
+      color: #0a0e27;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .speaker-title {
+      color: #64b5f6;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .speaker-bio {
+      color: #666;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .speaker-topics {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .topic-tag {
+      background-color: #f0f0f0;
+      color: #0a0e27;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 768px) {
+      .speakers-hero h1 {
+        font-size: 2rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+
+  <section class="speakers-hero">
+    <div class="container">
+      <h1>Featured Speakers</h1>
+      <p>Meet the industry experts and thought leaders at Dev Summit 2026</p>
+    </div>
+  </section>
+
+  <section class="speakers-content">
+    <div class="container">
+      <h2 class="section-title">Keynote Speakers</h2>
+      <div class="speakers-grid">
+        <div class="speaker-card">
+          <div class="speaker-image">👩‍💼</div>
+          <div class="speaker-info">
+            <div class="speaker-name">Sarah Chen</div>
+            <div class="speaker-title">Chief Innovation Officer, TechCorp</div>
+            <div class="speaker-bio">Sarah is a visionary leader with 15+ years of experience in AI and software engineering. She'll share insights on the future of AI-assisted development.</div>
+            <div class="speaker-topics">
+              <span class="topic-tag">AI</span>
+              <span class="topic-tag">Innovation</span>
+              <span class="topic-tag">Leadership</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="speaker-card">
+          <div class="speaker-image">👨‍🔬</div>
+          <div class="speaker-info">
+            <div class="speaker-name">Dr. James Wilson</div>
+            <div class="speaker-title">Research Lead, AI Lab</div>
+            <div class="speaker-bio">Dr. Wilson leads cutting-edge research in machine learning and code generation. His work has shaped modern development tools.</div>
+            <div class="speaker-topics">
+              <span class="topic-tag">Machine Learning</span>
+              <span class="topic-tag">Code Generation</span>
+              <span class="topic-tag">Research</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="speaker-card">
+          <div class="speaker-image">👨‍💻</div>
+          <div class="speaker-info">
+            <div class="speaker-name">Alex Rodriguez</div>
+            <div class="speaker-title">DevOps Architect, CloudScale</div>
+            <div class="speaker-bio">Alex specializes in modern DevOps practices and cloud infrastructure. He'll discuss automation and workflow optimization.</div>
+            <div class="speaker-topics">
+              <span class="topic-tag">DevOps</span>
+              <span class="topic-tag">Cloud</span>
+              <span class="topic-tag">Automation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="section-title" style="margin-top: 4rem;">Workshop Leaders</h2>
+      <div class="speakers-grid">
+        <div class="speaker-card">
+          <div class="speaker-image">👩‍🏫</div>
+          <div class="speaker-info">
+            <div class="speaker-name">Maria Garcia</div>
+            <div class="speaker-title">Senior Engineer, DevFlow</div>
+            <div class="speaker-bio">Maria leads hands-on workshops on advanced development workflows and best practices for modern teams.</div>
+            <div class="speaker-topics">
+              <span class="topic-tag">Workflows</span>
+              <span class="topic-tag">Best Practices</span>
+              <span class="topic-tag">Teams</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="speaker-card">
+          <div class="speaker-image">👨‍🔐</div>
+          <div class="speaker-info">
+            <div class="speaker-name">Michael Zhang</div>
+            <div class="speaker-title">Security Expert, SecureCode</div>
+            <div class="speaker-bio">Michael is passionate about secure development practices and will share strategies for building secure applications.</div>
+            <div class="speaker-topics">
+              <span class="topic-tag">Security</span>
+              <span class="topic-tag">Best Practices</span>
+              <span class="topic-tag">Compliance</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="speaker-card">
+          <div class="speaker-image">👩‍☁️</div>
+          <div class="speaker-info">
+            <div class="speaker-name">Emma Thompson</div>
+            <div class="speaker-title">Cloud Architect, CloudNative</div>
+            <div class="speaker-bio">Emma specializes in cloud architecture and will lead workshops on designing scalable, resilient systems.</div>
+            <div class="speaker-topics">
+              <span class="topic-tag">Cloud</span>
+              <span class="topic-tag">Architecture</span>
+              <span class="topic-tag">Scalability</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="section-title" style="margin-top: 4rem;">Panel Discussants</h2>
+      <div class="speakers-grid">
+        <div class="speaker-card">
+          <div class="speaker-image">👨‍💼</div>
+          <div class="speaker-info">
+            <div class="speaker-name">David Kumar</div>
+            <div class="speaker-title">CTO, InnovateTech</div>
+            <div class="speaker-bio">David brings strategic insights on emerging technologies and their impact on software development practices.</div>
+            <div class="speaker-topics">
+              <span class="topic-tag">Emerging Tech</span>
+              <span class="topic-tag">Strategy</span>
+              <span class="topic-tag">Innovation</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="speaker-card">
+          <div class="speaker-image">👩‍🚀</div>
+          <div class="speaker-info">
+            <div class="speaker-name">Lisa Park</div>
+            <div class="speaker-title">Product Manager, DevTools Inc</div>
+            <div class="speaker-bio">Lisa leads product strategy for developer tools and will discuss the future of development platforms.</div>
+            <div class="speaker-topics">
+              <span class="topic-tag">Product</span>
+              <span class="topic-tag">Tools</span>
+              <span class="topic-tag">Future</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="speaker-card">
+          <div class="speaker-image">👨‍🎓</div>
+          <div class="speaker-info">
+            <div class="speaker-name">Prof. Robert Chen</div>
+            <div class="speaker-title">University Professor, Tech University</div>
+            <div class="speaker-bio">Robert brings academic perspective on AI and software engineering, bridging theory and practice.</div>
+            <div class="speaker-topics">
+              <span class="topic-tag">Academia</span>
+              <span class="topic-tag">AI</span>
+              <span class="topic-tag">Research</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
